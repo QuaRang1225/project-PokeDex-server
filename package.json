@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "pokedex-server",
+  "description": "PokeDex API Project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuaRang1225/PokeDex-server.git"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "quarang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuaRang1225/PokeDex-server/issues"
+  },
+  "homepage": "https://github.com/QuaRang1225/PokeDex-server#readme"
+}
