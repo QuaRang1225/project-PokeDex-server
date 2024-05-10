@@ -16,6 +16,7 @@ router.get('/', (req, res, next) => {
         .then(totalCount => {
             Varieties
                 .find()
+                .sort({ _id: 1 })
                 .skip((page - 1) * perPage) // 스킵할 아이템 수 계산
                 .limit(perPage) // 한 페이지에 반환할 아이템 수 제한
                 .exec()
