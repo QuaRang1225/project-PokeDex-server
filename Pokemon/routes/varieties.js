@@ -125,6 +125,8 @@ function responseValue(doc){
             text : doc.abilites.text
         },
         form : {
+            id : doc.form.images.map(str => 
+                parseInt(str.split('').filter(char => !isNaN(char) && char !== ' ').join(''), 10)),
             images : doc.form.images,
             name : doc.form.name
         },
@@ -144,6 +146,8 @@ function requestValue(req){
             text : req.body.abilites.text
         },
         form : {
+            id : req.body.form.images.map(str => 
+                parseInt(str.split('').filter(char => !isNaN(char) && char !== ' ').join(''), 10)),
             images : req.body.form.images,
             name : req.body.form.name
         },

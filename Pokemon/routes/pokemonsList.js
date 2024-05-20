@@ -5,9 +5,6 @@ const mongoose = require('mongoose')
 const Pokemon = require('../models/pokemon')
 
 
-
-
-
 router.get('/', (req, res, next) => {
     const page = parseInt(req.query.page) || 1 // 페이지 번호, 기본값은 1
     const region = req.query.region

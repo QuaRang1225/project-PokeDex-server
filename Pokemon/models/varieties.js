@@ -8,6 +8,7 @@ const varietiesSchema = mongoose.Schema({
         text : []
     },
     form : {
+        id : [],
         images : [],
         name : []
     },
