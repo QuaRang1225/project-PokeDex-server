@@ -8,15 +8,13 @@ const Varieties = require('../models/varieties')
 router.get('/', (req, res, next) => {
     const page = parseInt(req.query.page) || 1 // 페이지 번호, 기본값은 1
     const perPage = 20 // 페이지당 아이템 수
-
-
-
+    
     Varieties
         .countDocuments() // 전체 문서 수를 가져옴
         .then(totalCount => {
             Varieties
                 .find()
-                .sort({ _id: 1 })
+                .sort({ form : 1 })
                 .skip((page - 1) * perPage) // 스킵할 아이템 수 계산
                 .limit(perPage) // 한 페이지에 반환할 아이템 수 제한
                 .exec()
@@ -29,7 +27,8 @@ router.get('/', (req, res, next) => {
                         per_page: perPage, // 페이지당 아이템 수
                         pokemon: docs.map(doc => {
                             return {
-                                _id : doc._id
+                                _id : doc._id,
+                                num : parseInt(doc.form.images[0].match(/\d+/)[0], 10)
                             }
                         })
                     };
@@ -40,6 +39,7 @@ router.get('/', (req, res, next) => {
                     })
                 })
                 .catch(err => {
+                    console.log(err)
                     res.status(500).json({
                         status : 500,
                         data : {},
